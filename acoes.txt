@@ -1,0 +1,5 @@
+1 - Exibir informacoes;
+2 - Treinar exercito;
+3 - Construir edificacoes;
+4 - Conquistar Reino;
+5 - Sair;
