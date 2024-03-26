@@ -12,15 +12,16 @@ public class ConquistadoresReinoFacade {
 	
 	public void jogar() {
 		this.iniciarJogo();
-		// enquanto nao acabar
+		while (estadoDoJogo.estaEmAndamento()) {
 			// apresentar menu
 			// ler acao
 			//processar acao
+		}
 		// encerrar jogo
 	}
 
 	private void iniciarJogo() {
-		// Setar variavel para true
+		this.estadoDoJogo.inciar();
 		// Imprimir logo
 	}
 }
