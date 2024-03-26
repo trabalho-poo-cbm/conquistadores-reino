@@ -1,4 +1,4 @@
-package br.com.cbm.conquistadores.reino.entities;
+package br.com.cbm.conquistadores.reino.domain.entities;
 
 import java.util.Map;
 
