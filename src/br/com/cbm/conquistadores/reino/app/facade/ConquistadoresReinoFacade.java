@@ -17,7 +17,7 @@ public class ConquistadoresReinoFacade {
 		this.iniciarJogo();
 //		while (estadoDoJogo.estaEmAndamento()) {
 			interfaceDeUsuario.imprimirAcoes();
-			// ler acao
+			interfaceDeUsuario.lerAcao();
 			//processar acao
 //		}
 		// encerrar jogo

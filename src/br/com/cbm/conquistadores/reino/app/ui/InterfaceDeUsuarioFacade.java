@@ -1,7 +1,18 @@
 package br.com.cbm.conquistadores.reino.app.ui;
 
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 // TODO: Separar responsabilidades em mais objetos
 public class InterfaceDeUsuarioFacade {
+
+	private final Scanner scanner;
+	private final PrintWriter writer;
+
+	public InterfaceDeUsuarioFacade(){
+		this.scanner = new Scanner(System.in);
+		this.writer = new PrintWriter(System.out);
+	}
 
 	public void imprimirTitulo() {
 		final String titulo = """
@@ -20,7 +31,7 @@ public class InterfaceDeUsuarioFacade {
                                                                         
                                                          
 				""";
-		System.out.println(titulo);
+		writer.println(titulo);
 	}
 	
 	public void imprimirAcoes() {
@@ -31,6 +42,10 @@ public class InterfaceDeUsuarioFacade {
 				4 - Conquistar Reino
 				5 - Sair
 				""";
-		System.out.println(acoes);
+		writer.println(acoes);
+	}
+
+	public int lerAcao(){
+		return 0;
 	}
 }
