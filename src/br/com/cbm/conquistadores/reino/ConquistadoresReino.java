@@ -1,6 +1,6 @@
 package br.com.cbm.conquistadores.reino;
 
-import br.com.cbm.conquistadores.reino.app.commands.ConquistadoresReinoFacade;
+import br.com.cbm.conquistadores.reino.app.facade.ConquistadoresReinoFacade;
 
 public class ConquistadoresReino {
 
