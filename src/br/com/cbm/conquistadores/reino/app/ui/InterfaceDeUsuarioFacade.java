@@ -1,0 +1,36 @@
+package br.com.cbm.conquistadores.reino.app.ui;
+
+// TODO: Separar responsabilidades em mais objetos
+public class InterfaceDeUsuarioFacade {
+
+	public void imprimirTitulo() {
+		final String titulo = """
+				  _____                        _     _            _                     
+				 / ____|                      (_)   | |          | |                    
+				| |     ___  _ __   __ _ _   _ _ ___| |_ __ _  __| | ___  _ __ ___  ___ 
+				| |    / _ \\| '_ \\ / _` | | | | / __| __/ _` |/ _` |/ _ \\| '__/ _ \\/ __|
+				| |___| (_) | | | | (_| | |_| | \\__ \\ || (_| | (_| | (_) | | |  __/\\__ \\
+				 \\_____\\___/|_| |_|\\__, |\\__,_|_|___/\\__\\__,_|\\__,_|\\___/|_|  \\___||___/
+				                      | |_____      _                                   
+				                      |_|  __ \\    (_)                                  
+				                        | |__) |___ _ _ __   ___                        
+				                        |  _  // _ \\ | '_ \\ / _ \\                       
+				                        | | \\ \\  __/ | | | | (_) |                      
+				                        |_|  \\_\\___|_|_| |_|\\___/                       
+                                                                        
+                                                         
+				""";
+		System.out.println(titulo);
+	}
+	
+	public void imprimirAcoes() {
+		final String acoes = """
+				1 - Exibir informacoes
+				2 - Treinar exercito
+				3 - Construir edificacoes
+				4 - Conquistar Reino
+				5 - Sair
+				""";
+		System.out.println(acoes);
+	}
+}
