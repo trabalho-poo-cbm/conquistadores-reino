@@ -1,6 +1,6 @@
 package br.com.cbm.conquistadores.reino.app.commands;
 
-public class SairCommand implements Command {
+public class SairCommand implements AcaoCommand {
 
 	@Override
 	public void execute() {

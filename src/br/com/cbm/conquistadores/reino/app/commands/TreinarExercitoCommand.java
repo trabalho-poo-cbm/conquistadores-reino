@@ -1,6 +1,6 @@
 package br.com.cbm.conquistadores.reino.app.commands;
 
-public class TreinarExercitoCommand implements Command {
+public class TreinarExercitoCommand implements AcaoCommand {
 
 	@Override
 	public void execute() {

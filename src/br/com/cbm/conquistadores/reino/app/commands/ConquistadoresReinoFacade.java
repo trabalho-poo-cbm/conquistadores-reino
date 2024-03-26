@@ -1,9 +1,8 @@
 package br.com.cbm.conquistadores.reino.app.commands;
 
-public class ConquistarReinoCommand implements AcaoCommand {
+public class ConquistadoresReinoFacade {
 
-	@Override
-	public void execute() {
+	public void jogar() {
 		// TODO Auto-generated method stub
 		
 	}
