@@ -4,7 +4,6 @@ public class ConstruirEdificacacoesCommand implements AcaoCommand {
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Construir edificacao");
 	}
 }
