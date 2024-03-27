@@ -16,4 +16,8 @@ public class ConquistadoresReinoState {
 	public boolean estaEmAndamento() {
 		return estado == State.EM_ANDAMENTO;
 	}
+	
+	public void encerrar() {
+		this.estado = State.ENCERRADO;
+	}
 }
