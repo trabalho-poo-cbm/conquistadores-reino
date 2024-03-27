@@ -1,6 +1,5 @@
 package br.com.cbm.conquistadores.reino.app.ui;
 
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 // TODO: Separar responsabilidades em mais objetos
