@@ -3,7 +3,8 @@ package br.com.cbm.conquistadores.reino.app.facade;
 import br.com.cbm.conquistadores.reino.app.commands.AcaoCommand;
 import br.com.cbm.conquistadores.reino.app.commands.ConquistarReinoCommand;
 import br.com.cbm.conquistadores.reino.app.commands.ConstruirEdificacacoesCommand;
-import br.com.cbm.conquistadores.reino.app.commands.ExibirInformacoesCommand;
+import br.com.cbm.conquistadores.reino.app.commands.ExibirInformacoesJogadorCommand;
+import br.com.cbm.conquistadores.reino.app.commands.ExibirMapaCommand;
 import br.com.cbm.conquistadores.reino.app.commands.SairCommand;
 import br.com.cbm.conquistadores.reino.app.commands.TreinarExercitoCommand;
 import br.com.cbm.conquistadores.reino.app.commands.processor.AcaoProcessor;
@@ -32,13 +33,15 @@ public class ConquistadoresReinoFacade {
 		// encerrar jogo
 	}
 
+	// TODO: Verificar possibilidade de remover injeção de dependências e mover para uma classe de factory
 	private AcaoCommand defineComando(int acao) {
 		return switch(acao) {
-			case 1 -> new ExibirInformacoesCommand();
-			case 2 -> new TreinarExercitoCommand();
-			case 3 -> new ConstruirEdificacacoesCommand();
-			case 4 -> new ConquistarReinoCommand();
-			case 5 -> new SairCommand(estadoDoJogo);
+			case 1 -> new ExibirInformacoesJogadorCommand();
+			case 2 -> new ExibirMapaCommand();
+			case 3 -> new TreinarExercitoCommand();
+			case 4 -> new ConstruirEdificacacoesCommand();
+			case 5 -> new ConquistarReinoCommand();
+			case 6 -> new SairCommand(estadoDoJogo);
 			default -> throw new IllegalArgumentException("Valor inesperado para acao (esperado de 1 a 5): " + acao);
 		};
 	}

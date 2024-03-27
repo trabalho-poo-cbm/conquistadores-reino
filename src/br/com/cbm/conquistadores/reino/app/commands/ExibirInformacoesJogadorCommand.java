@@ -1,6 +1,6 @@
 package br.com.cbm.conquistadores.reino.app.commands;
 
-public class ExibirInformacoesCommand implements AcaoCommand {
+public class ExibirInformacoesJogadorCommand implements AcaoCommand {
 
 	@Override
 	public void execute() {

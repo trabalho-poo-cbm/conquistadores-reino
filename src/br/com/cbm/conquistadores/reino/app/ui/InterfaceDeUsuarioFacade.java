@@ -33,11 +33,12 @@ public class InterfaceDeUsuarioFacade {
 	
 	public void imprimirAcoes() {
 		final String acoes = """
-				1 - Exibir informacoes
-				2 - Treinar exercito
-				3 - Construir edificacoes
-				4 - Conquistar Reino
-				5 - Sair
+				1 - Exibir informacoes do jogador
+				2 - Exibir mapa
+				3 - Treinar exercito
+				4 - Construir edificacoes
+				5 - Conquistar Reino
+				6 - Sair
 				""";
 		System.out.println(acoes);
 	}
@@ -47,8 +48,8 @@ public class InterfaceDeUsuarioFacade {
 		int numero = 0;
 
 		do{
-			numero = lerNatural("Digite um número inteiro entre 1 e 5: ");
-		} while(numero < 1 || numero > 5);
+			numero = lerNatural("Digite um número inteiro entre 1 e 6: ");
+		} while(numero < 1 || numero > 6);
 		return numero;
 	}
 
