@@ -44,6 +44,41 @@ public class InterfaceDeUsuarioFacade {
 	}
 
 	public int lerAcao(){
-		return 0;
+
+		int numero = 0;
+
+		do{
+			numero = lerNatural("Digite um número inteiro entre 1 e 5: ");
+		} while(numero < 1 || numero > 5);
+		return numero;
+	}
+
+	private int lerNatural(String mensagem){
+
+		String entrada;
+		int numero = 0;
+
+		do {
+			System.out.println(mensagem);
+			entrada = scanner.nextLine();
+
+			boolean isNumber = true;
+			for (char c : entrada.toCharArray()) {
+				if (!Character.isDigit(c)) {
+					isNumber = false;
+					break;
+				}
+			}
+
+			if (!isNumber) {
+				System.out.println("Entrada inválida. ".concat(mensagem));
+				continue;
+			}
+
+			numero = Integer.parseInt(entrada);
+
+		} while (numero < 0);
+
+		return numero;
 	}
 }
