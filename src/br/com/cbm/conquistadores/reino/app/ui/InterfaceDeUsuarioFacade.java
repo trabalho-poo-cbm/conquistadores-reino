@@ -7,11 +7,9 @@ import java.util.Scanner;
 public class InterfaceDeUsuarioFacade {
 
 	private final Scanner scanner;
-	private final PrintWriter writer;
 
 	public InterfaceDeUsuarioFacade(){
 		this.scanner = new Scanner(System.in);
-		this.writer = new PrintWriter(System.out);
 	}
 
 	public void imprimirTitulo() {
@@ -31,7 +29,7 @@ public class InterfaceDeUsuarioFacade {
                                                                         
                                                          
 				""";
-		writer.println(titulo);
+		System.out.println(titulo);
 	}
 	
 	public void imprimirAcoes() {
@@ -42,7 +40,7 @@ public class InterfaceDeUsuarioFacade {
 				4 - Conquistar Reino
 				5 - Sair
 				""";
-		writer.println(acoes);
+		System.out.println(acoes);
 	}
 
 	public int lerAcao(){
