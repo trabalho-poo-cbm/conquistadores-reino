@@ -1,8 +1,8 @@
 package br.com.cbm.conquistadores.reino.domain.entities;
 
-import java.util.List;
+import java.util.Map;
 
 public class Mapa {
 
-	private final List<Reino> reinos = null;
+	private final Map<Integer, Reino> reinos = null;
 }
