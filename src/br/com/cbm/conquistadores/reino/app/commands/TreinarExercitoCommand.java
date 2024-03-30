@@ -1,13 +1,32 @@
 package br.com.cbm.conquistadores.reino.app.commands;
 
-public class TreinarExercitoCommand implements AcaoCommand {
+import br.com.cbm.conquistadores.reino.domain.entities.Exercito;
+import java.util.Timer;
+import java.util.TimerTask;
 
-	@Override
-	public void execute() {
-		// Implementação deve ser feita em uma classe de use case
-		// Usa-se recursos para treinar o exército
-		// Automaticamente o exército é treinado de tempos em tempos
-		
-		System.out.println("Treinar exercito");
+public class TreinarExercitoCommand implements Runnable {
+
+	private Exercito exercito;
+    private Timer timer;
+
+    public TreinarExercitoCommand(Exercito exercito) {
+        this.exercito = exercito;
+
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                execute();
+            }
+        }, 0, 20 * 1000); // A cada 20 segundos
+    }
+
+    @Override
+    public void run() {
+        execute();
+    }
+
+    public void execute() {
+        exercito.treinarTropas(10, 10);
 	}
 }
