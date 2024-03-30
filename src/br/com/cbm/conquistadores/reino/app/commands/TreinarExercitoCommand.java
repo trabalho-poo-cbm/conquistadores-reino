@@ -1,32 +1,20 @@
 package br.com.cbm.conquistadores.reino.app.commands;
 
+import br.com.cbm.conquistadores.reino.domain.usecases.TreinarExercitoUseCase;
 import br.com.cbm.conquistadores.reino.domain.entities.Exercito;
-import java.util.Timer;
-import java.util.TimerTask;
+import br.com.cbm.conquistadores.reino.domain.entities.Jogador;
 
-public class TreinarExercitoCommand implements Runnable {
+public class TreinarExercitoCommand implements AcaoCommand {
 
-	private Exercito exercito;
-    private Timer timer;
-
-    public TreinarExercitoCommand(Exercito exercito) {
-        this.exercito = exercito;
-
-        timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                execute();
-            }
-        }, 0, 20 * 1000); // A cada 20 segundos
-    }
-
+    Jogador jogador = Jogador.getInstance("Teste");
+    
     @Override
-    public void run() {
-        execute();
+	public void execute() {
+        // Obter o exército do jogador
+        Exercito exercito = jogador.getExercito();
+		
+        // Criar instância do caso de uso e executar
+		TreinarExercitoUseCase useCase = new TreinarExercitoUseCase(exercito);
+        useCase.execute();
     }
-
-    public void execute() {
-        exercito.treinarTropas(10, 10);
-	}
 }
