@@ -1,38 +1,46 @@
 package br.com.cbm.conquistadores.reino.domain.entities;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Jogador {
+	
 	private String nome;
-    private Map<Integer, Reino> reinosConquistados = null;
-    private static Jogador instance;
+    private List<String> reinosConquistados;
+    private Recursos recursos;
     private Exercito exercito;
+    private Edificacoes edificacoes;
+    private final static Jogador INSTANCE;
 
-    public Jogador(String nome) {
-        this.nome = nome;
+    static {
+    	INSTANCE = new Jogador();
+    }
+    
+    private Jogador() {
+    	// TODO: Definir nome padrão para o Jogador ou deixar escolher
+    	this.reinosConquistados = new ArrayList<>();
+    	this.recursos = new Recursos();
+    	this.exercito = new Exercito(recursos); // TODO: Recursos não é dependência de exército
+    	this.edificacoes = new Edificacoes();
     }
 
-    public static Jogador getInstance(String nome) {
-        if (instance == null) {
-            instance = new Jogador(nome);
-        }
-        return instance;
+    public static Jogador getInstance() {
+        return INSTANCE;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public Map<Integer, Reino> getReinosConquistados() {
+    public List<String> getReinosConquistados() {
         return reinosConquistados;
-    }
-
-    public void adicionarReinoConquistado(Integer chave, Reino reino) {
-        reinosConquistados.put(chave, reino);
     }
 
     public Exercito getExercito() {
         return exercito;
     }
- 
+
+    public void adicionarReinoConquistado(String nomeReino) {
+        reinosConquistados.add(nomeReino);
+    }
 }

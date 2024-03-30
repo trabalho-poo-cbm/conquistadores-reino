@@ -1,12 +1,12 @@
 package br.com.cbm.conquistadores.reino.app.commands;
 
-import br.com.cbm.conquistadores.reino.domain.usecases.TreinarExercitoUseCase;
 import br.com.cbm.conquistadores.reino.domain.entities.Exercito;
 import br.com.cbm.conquistadores.reino.domain.entities.Jogador;
+import br.com.cbm.conquistadores.reino.domain.usecases.TreinarExercitoUseCase;
 
 public class TreinarExercitoCommand implements AcaoCommand {
 
-    Jogador jogador = Jogador.getInstance("Teste");
+    Jogador jogador = Jogador.getInstance();
     
     @Override
 	public void execute() {

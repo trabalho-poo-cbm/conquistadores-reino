@@ -1,26 +1,25 @@
 package br.com.cbm.conquistadores.reino.app.commands;
 
-import br.com.cbm.conquistadores.reino.domain.entities.Jogador;
-import br.com.cbm.conquistadores.reino.domain.entities.Reino;
+import java.util.List;
 
-import java.util.Map;
+import br.com.cbm.conquistadores.reino.domain.entities.Jogador;
 
 public class ExibirInformacoesJogadorCommand implements AcaoCommand {
 	
-	private final Jogador Jogador;
+	private final Jogador jogador;
 	
-	public ExibirInformacoesJogadorCommand(Jogador jogador) {
-		this.Jogador = jogador;
+	public ExibirInformacoesJogadorCommand() {
+		this.jogador = Jogador.getInstance();
 	}
 	
 	public void exibirInformacoesJogador() {
         System.out.println("Informações do Jogador:");
-        System.out.println("Nome: " + Jogador.getNome());
+        System.out.println("Nome: " + jogador.getNome());
         System.out.println("Reinos Conquistados:");
-        Map<Integer, Reino> reinosConquistados = Jogador.getReinosConquistados();
+        List<String> reinosConquistados = jogador.getReinosConquistados();
         if (reinosConquistados != null && !reinosConquistados.isEmpty()) {
-            for (Map.Entry<Integer, Reino> entry : reinosConquistados.entrySet()) {
-                System.out.println("Chave: " + entry.getKey() + ", Reino: " + entry.getValue().getNome());
+        	for (String nomeReino : reinosConquistados) {
+                System.out.println("Reino: " + nomeReino);
             }
         } else {
             System.out.println("O jogador não conquistou nenhum reino ainda.");
@@ -29,8 +28,6 @@ public class ExibirInformacoesJogadorCommand implements AcaoCommand {
 	
 	@Override
 	public void execute() {
-		// Implementação deve ser feita em uma classe de use case
-		// Imprimir o objeto jogador e seus atributos
 		System.out.println("Exibir informacoes");
 		exibirInformacoesJogador();
 	}

@@ -3,9 +3,9 @@ package br.com.cbm.conquistadores.reino.domain.entities;
 public class Exercito {
 
     private int tropasTreinadas;
-    private Recurso recursos;
+    private Recursos recursos;
 
-    public Exercito(Recurso recursos) {
+    public Exercito(Recursos recursos) {
         this.tropasTreinadas = 0;
         this.recursos = recursos;
     }

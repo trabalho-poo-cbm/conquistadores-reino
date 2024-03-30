@@ -3,13 +3,13 @@ package br.com.cbm.conquistadores.reino.domain.entities;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Recurso extends TimerTask {
+public class Recursos extends TimerTask {
 
     private int madeira;
     private int ferro;
     private Timer tempo;
 
-    public Recurso() {
+    public Recursos() {
         this.madeira = 100;
         this.ferro = 100;
 

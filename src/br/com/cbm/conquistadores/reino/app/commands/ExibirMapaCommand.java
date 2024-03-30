@@ -9,8 +9,8 @@ public class ExibirMapaCommand implements AcaoCommand {
 	
 	private final Mapa mapa;
 	
-	public ExibirMapaCommand(Mapa mapa) {
-        this.mapa = mapa;
+	public ExibirMapaCommand() {
+        this.mapa = Mapa.getInstance();
     }
 
     public void exibirMapa() {
