@@ -21,7 +21,7 @@ public class TreinarExercitoUseCase {
 //            }, 0, 20 * 1000); // A cada 20 segundos
         }
 
-        public void execute() {
+        public void treinarExercito() {
             exercito.treinarTropas(10, 10);
         }
         

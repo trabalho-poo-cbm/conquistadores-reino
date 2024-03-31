@@ -6,15 +6,16 @@ import br.com.cbm.conquistadores.reino.domain.usecases.TreinarExercitoUseCase;
 
 public class TreinarExercitoCommand implements AcaoCommand {
 
-    Jogador jogador = Jogador.getInstance();
+    private final Jogador jogador;
+    
+    public TreinarExercitoCommand(Jogador jogador) {
+		this.jogador = jogador;
+	}
     
     @Override
 	public void execute() {
-        // Obter o exército do jogador
         Exercito exercito = jogador.getExercito();
-		
-        // Criar instância do caso de uso e executar
 		TreinarExercitoUseCase useCase = new TreinarExercitoUseCase(exercito);
-        useCase.execute();
+        useCase.treinarExercito();
     }
 }

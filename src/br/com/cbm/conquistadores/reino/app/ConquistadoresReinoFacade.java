@@ -34,7 +34,7 @@ public class ConquistadoresReinoFacade {
 	public void jogar() {
 		this.iniciarJogo();
 		while (estadoDoJogo.estaEmAndamento()) {
-			interfaceDeUsuario.imprimirAcoes();
+			interfaceDeUsuario.exibirAcoes();
 			int acao = interfaceDeUsuario.lerAcao();
 			acaoProcessor.processa(defineAcao(acao));
 		}
@@ -44,8 +44,8 @@ public class ConquistadoresReinoFacade {
 	private AcaoCommand defineAcao(int acao) {
 		return switch(acao) {
 			case 1 -> new ExibirInformacoesJogadorCommand(jogador, interfaceDeUsuario);
-			case 2 -> new ExibirMapaCommand();
-			case 3 -> new TreinarExercitoCommand();
+			case 2 -> new ExibirMapaCommand(mapa, interfaceDeUsuario);
+			case 3 -> new TreinarExercitoCommand(jogador);
 			case 4 -> new ConstruirEdificacacoesCommand();
 			case 5 -> new ConquistarReinoCommand();
 			case 6 -> new SairCommand(estadoDoJogo);
@@ -55,7 +55,7 @@ public class ConquistadoresReinoFacade {
 	
 	private void iniciarJogo() {
 		this.estadoDoJogo.inciar();
-		this.interfaceDeUsuario.imprimirTitulo();
+		this.interfaceDeUsuario.exibirTitulo();
 	}
 	
 	private void encerrarJogo() {

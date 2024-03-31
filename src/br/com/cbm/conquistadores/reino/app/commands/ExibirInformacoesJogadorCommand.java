@@ -7,7 +7,7 @@ import br.com.cbm.conquistadores.reino.domain.usecases.ExibirInformacoesJogadorU
 public class ExibirInformacoesJogadorCommand implements AcaoCommand {
 	
 	private final Jogador jogador;
-	private InterfaceDeUsuarioFacade interfaceDeUsuario;
+	private final InterfaceDeUsuarioFacade interfaceDeUsuario;
 	
 	public ExibirInformacoesJogadorCommand(Jogador jogador, InterfaceDeUsuarioFacade interfaceDeUsuario) {
 		this.jogador = jogador;

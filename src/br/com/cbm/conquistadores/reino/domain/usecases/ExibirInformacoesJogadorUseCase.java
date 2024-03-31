@@ -6,7 +6,7 @@ import br.com.cbm.conquistadores.reino.domain.entities.Jogador;
 public class ExibirInformacoesJogadorUseCase {
 
 	private final Jogador jogador;
-	private InterfaceDeUsuarioFacade interfaceDeUsuario;
+	private final InterfaceDeUsuarioFacade interfaceDeUsuario;
 	
 	public ExibirInformacoesJogadorUseCase(Jogador jogador, InterfaceDeUsuarioFacade interfaceDeUsuario) {
 		this.jogador = jogador;
@@ -14,6 +14,6 @@ public class ExibirInformacoesJogadorUseCase {
 	}
 
 	public void exibirInformacoesJogador() {
-		interfaceDeUsuario.imprimeInformacaoJogador(jogador);
+		interfaceDeUsuario.exibibirInformacaoJogador(jogador);
 	}
 }

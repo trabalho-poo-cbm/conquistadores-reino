@@ -7,6 +7,7 @@ public class Reino {
 	private Recursos recursos;
 	private Exercito exercito;
 	private Edificacoes edificacoes;
+	private boolean conquistado;
 
 	public Reino(String nomeReino, String nomeRei, Recursos recursos, Exercito exercito, Edificacoes edificacoes) {
 		this.nomeReino = nomeReino;
@@ -14,6 +15,7 @@ public class Reino {
 		this.recursos = recursos;
 		this.exercito = exercito;
 		this.edificacoes = edificacoes;
+		this.conquistado = false;
 	}
 
 	public String getNomeReino() {
@@ -24,5 +26,19 @@ public class Reino {
 		return recursos;
 	}
 	
-	// O Reino é composto nome, rei, recursos(madeira, pedra, ouro), exercito(arqueiro, cavaleiro, tanque), edificacao (muralha, torre, casa)
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder()
+				.append("\nReino: ").append(nomeReino)
+				.append("\nRei: ").append(nomeRei);
+		if (conquistado) {
+			builder.append("\nCONQUISTADO");
+		} else {
+			builder.append(recursos.toString())
+					.append(recursos.toString())
+					.append(exercito.toString())
+					.append(edificacoes.toString());
+		}
+		return builder.toString();
+	}
 }

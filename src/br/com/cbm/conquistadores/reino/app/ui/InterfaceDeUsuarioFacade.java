@@ -3,6 +3,7 @@ package br.com.cbm.conquistadores.reino.app.ui;
 import java.util.Scanner;
 
 import br.com.cbm.conquistadores.reino.domain.entities.Jogador;
+import br.com.cbm.conquistadores.reino.domain.entities.Mapa;
 
 // TODO: Separar responsabilidades em mais objetos
 public class InterfaceDeUsuarioFacade {
@@ -17,7 +18,7 @@ public class InterfaceDeUsuarioFacade {
 		this.scanner = new Scanner(System.in);
 	}
 
-	public void imprimirTitulo() {
+	public void exibirTitulo() {
 		final String titulo = """
 				  _____                        _     _            _                     
 				 / ____|                      (_)   | |          | |                    
@@ -36,7 +37,7 @@ public class InterfaceDeUsuarioFacade {
 		this.impressor.imprimeTexto(titulo);
 	}
 	
-	public void imprimirAcoes() {
+	public void exibirAcoes() {
 		final String acoes = """
 				1 - Exibir informacoes do jogador
 				2 - Exibir mapa
@@ -88,8 +89,13 @@ public class InterfaceDeUsuarioFacade {
 		return numero;
 	}
 
-	public void imprimeInformacaoJogador(Jogador jogador) {
+	public void exibibirInformacaoJogador(Jogador jogador) {
 		this.impressor.pulaLinha();
 		this.impressor.imprimeObjeto(jogador);
+	}
+
+	public void exibirInformacaoMapa(Mapa mapa) {
+		this.impressor.pulaLinha();
+		this.impressor.imprimeObjeto(mapa);
 	}
 }

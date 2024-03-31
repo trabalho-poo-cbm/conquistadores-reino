@@ -1,6 +1,6 @@
 package br.com.cbm.conquistadores.reino.app;
 
-// TODO: Verificar necessidade de um terceiro estado de vitoria e derrota
+// TODO: Criar estados de vitoria e derrota
 public class ConquistadoresReinoState {
 
 	private State estado;

@@ -10,7 +10,7 @@ public class ConquistarReinoCommand implements AcaoCommand {
 			// Em caso de vitoria, o reino e anexado ao Jogador, seus recursos são somados, as edificações e exército são somados apenas uma porcentagem
 			// Em caso de derrota, o jogo e encerrado
 			// Ao conquitar todos os reinos, o jogo é finalizado com vitória
-		
+				// É necessário fazer uma checagem se todos os reinos no mapa para verificar se todos os reinos estão conquistados, se sim encerrar jogo
 		System.out.println("Conquistar Reino");
 	}
 }
