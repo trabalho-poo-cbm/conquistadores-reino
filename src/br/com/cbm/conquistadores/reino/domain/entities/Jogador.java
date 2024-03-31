@@ -18,6 +18,7 @@ public class Jogador {
     
     private Jogador() {
     	// TODO: Definir nome padrão para o Jogador ou deixar escolher
+    	this.nome = "";
     	this.reinosConquistados = new ArrayList<>();
     	this.recursos = new Recursos();
     	this.exercito = new Exercito(recursos); // TODO: Recursos não é dependência de exército
@@ -40,6 +41,10 @@ public class Jogador {
         return exercito;
     }
 
+    public Recursos getRecursos() {
+    	return recursos;
+    }
+    
     public void adicionarReinoConquistado(String nomeReino) {
         reinosConquistados.add(nomeReino);
     }

@@ -3,18 +3,20 @@ package br.com.cbm.conquistadores.reino.domain.entities;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Recursos extends TimerTask {
+import br.com.cbm.conquistadores.reino.app.observer.InterrompedorTimerObserver;
+
+public class Recursos extends TimerTask implements InterrompedorTimerObserver {
 
     private int madeira;
     private int ferro;
-    private Timer tempo;
+    private Timer timer;
 
     public Recursos() {
         this.madeira = 100;
         this.ferro = 100;
 
-        tempo = new Timer();
-        tempo.scheduleAtFixedRate(this, 0, 45 * 1000); // A cada 45 segundos
+        timer = new Timer();
+        timer.scheduleAtFixedRate(this, 0, 45 * 1000); // A cada 45 segundos
     }
 
     public int getMadeira() {
@@ -44,11 +46,12 @@ public class Recursos extends TimerTask {
 
     @Override
     public void run() {
-        // Aumenta a quantidade de recursos
         madeira += 10;
         ferro += 10;
-
-        // Exibe a quantidade atual de recursos
-        System.out.println("Madeira: " + madeira + " | Ferro: " + ferro);
     }
+
+	@Override
+	public void interromperTimer() {
+		timer.cancel();
+	}
 }
