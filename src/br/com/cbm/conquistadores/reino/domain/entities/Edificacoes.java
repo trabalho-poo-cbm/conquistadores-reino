@@ -8,11 +8,11 @@ public class Edificacoes {
 	private final Map<Edificacao, Integer> edificacoes;
 	
 	// TODO: Receber quantidade inicial do construtor
-	public Edificacoes() {
+	public Edificacoes(int casa, int muralha, int torre) {
 		this.edificacoes = new ConcurrentHashMap<>();
-		edificacoes.put(Edificacao.CASA, 20);
-		edificacoes.put(Edificacao.MURALHA, 2);
-		edificacoes.put(Edificacao.TORRE, 5);
+		edificacoes.put(Edificacao.CASA, casa);
+		edificacoes.put(Edificacao.MURALHA, muralha);
+		edificacoes.put(Edificacao.TORRE, torre);
 	}
 	
 	private enum Edificacao {

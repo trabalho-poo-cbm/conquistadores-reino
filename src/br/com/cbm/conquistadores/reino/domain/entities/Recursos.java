@@ -12,12 +12,11 @@ public class Recursos extends TimerTask implements InterrompedorTimerObserver {
 	private final Map<Recurso, Integer> recursos;
     private Timer timer;
 
-    // TODO: Receber quantidade inicial do construtor
-    public Recursos() {
+    public Recursos(int ferro, int madeira, int ouro) {
         this.recursos = new ConcurrentHashMap<>();
-        this.recursos.put(Recurso.FERRO, 100);
-        this.recursos.put(Recurso.MADEIRA, 100);
-        this.recursos.put(Recurso.OURO, 100);
+        this.recursos.put(Recurso.FERRO, ferro);
+        this.recursos.put(Recurso.MADEIRA, madeira);
+        this.recursos.put(Recurso.OURO, ouro);
         timer = new Timer();
         // TODO: Recurso não herda de timer task, usar classe anônima aqui
         timer.scheduleAtFixedRate(this, 0, 45 * 1000); // A cada 45 segundos
@@ -62,7 +61,7 @@ public class Recursos extends TimerTask implements InterrompedorTimerObserver {
 	public String toString() {
 		return new StringBuilder()
 			.append("\nRecursos:")
-			.append("\nFerro: ")
+			.append("\n\tFerro: ")
 			.append(recursos.get(Recurso.FERRO))
 			.append(" | Madeira: ")
 			.append(recursos.get(Recurso.FERRO))

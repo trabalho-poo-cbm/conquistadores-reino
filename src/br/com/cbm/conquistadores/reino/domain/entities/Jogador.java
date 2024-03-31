@@ -1,7 +1,8 @@
 package br.com.cbm.conquistadores.reino.domain.entities;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class Jogador {
 	
@@ -17,12 +18,13 @@ public class Jogador {
     }
     
     private Jogador() {
+    	Random random = new Random();
     	// TODO: Definir nome padrão para o Jogador ou deixar escolher
-    	this.nomeRei = "";
-    	this.reinosConquistados = new ArrayList<>();
-    	this.recursos = new Recursos();
-    	this.exercito = new Exercito(recursos); // TODO: Recursos não é dependência de exército
-    	this.edificacoes = new Edificacoes();
+    	this.nomeRei = "Placeholder";
+    	this.reinosConquistados = Arrays.asList("Arkanor");
+    	this.recursos = new Recursos(random.nextInt(16) + 10, random.nextInt(16) + 10, random.nextInt(16) + 10);
+    	this.exercito = new Exercito(random.nextInt(16) + 10, random.nextInt(16) + 10, random.nextInt(16) + 10); // TODO: Recursos não é dependência de exército
+    	this.edificacoes = new Edificacoes(random.nextInt(16) + 10, random.nextInt(16) + 10, random.nextInt(16) + 10);
     }
 
     public static Jogador getInstance() {
@@ -55,7 +57,6 @@ public class Jogador {
     			.append("Informações do Jogador:")
     			.append("\nNome: ")
     			.append(nomeRei)
-    			.append("\nReinos Conquistados:")
     			.append(obterReinosConquistadosComoTexto())
     			.append(recursos.toString())
     			.append(exercito.toString())
@@ -67,12 +68,10 @@ public class Jogador {
 		if (reinosConquistados.isEmpty()) {
     		return "\nO jogador não conquistou nenhum reino ainda.";
     	} 
-		String reinosConquistadosFormatado = "";
+		StringBuilder reinosConquistadosBuilder = new StringBuilder("\nReinos Conquistados:");
 		for (String nomeReino : reinosConquistados) {
-            reinosConquistadosFormatado
-            		.concat("\nReino: ")
-            		.concat(nomeReino);
+			reinosConquistadosBuilder.append("\n\tReino: ").append(nomeReino);
         }
-		return reinosConquistadosFormatado;
+		return reinosConquistadosBuilder.toString();
 	}
 }

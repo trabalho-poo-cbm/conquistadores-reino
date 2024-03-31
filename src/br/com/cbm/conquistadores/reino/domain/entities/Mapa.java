@@ -1,22 +1,19 @@
 package br.com.cbm.conquistadores.reino.domain.entities;
 
-import java.util.HashMap;
 import java.util.Map;
+
+import br.com.cbm.conquistadores.reino.config.InicializadorMapa;
 
 public class Mapa {
 	
-	private String Name;
+	private static final Mapa INSTANCE = new Mapa();
+	private final String name;
 	private final Map<Integer, Reino> reinos;
-	private static final Mapa INSTANCE;
-	
-	static {
-		INSTANCE = new Mapa();
-		// TODO: Popular reinos no atributo reinos;
-	}
 	
 	private Mapa() {
-		// TODO: Definir nome no construtor
-		this.reinos = new HashMap<>();
+		// TODO: Definir nome do mapa no construtor
+		this.name = "Placeholder";
+		this.reinos = InicializadorMapa.inicializar();
 	}
 	
 	public static Mapa getInstance() {
@@ -24,17 +21,11 @@ public class Mapa {
 	}
 	
 	public String getName() {
-        return Name;
+        return name;
     }
 
 
     public Map<Integer, Reino> getReinos() {
         return reinos;
-    }
-	
-	// TODO: Remover método, pois não se deve adicionar reinos aqui
-	@Deprecated()
-    public void adicionarReino(Integer chave, Reino reino) {
-        reinos.put(chave, reino);
     }
 }

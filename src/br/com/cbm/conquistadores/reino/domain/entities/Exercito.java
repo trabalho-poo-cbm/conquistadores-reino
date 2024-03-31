@@ -7,11 +7,17 @@ public class Exercito {
 
     // TODO: Receber quantidade inicial do construtor
     public Exercito(Recursos recursos) {
-        this.tropasTreinadas = 0;
-        this.recursos = recursos;
+
+    	
+    	this.tropasTreinadas = 0;
     }
 
-    public int getTropasTreinadas() {
+    public Exercito(int arqueiro, int cavaleiro, int tanque) {
+    	// arqueiro, cavaleiro, tanque
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getTropasTreinadas() {
         return tropasTreinadas;
     }
 

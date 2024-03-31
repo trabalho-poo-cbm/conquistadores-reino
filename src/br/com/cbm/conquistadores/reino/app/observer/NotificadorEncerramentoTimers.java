@@ -14,6 +14,9 @@ public class NotificadorEncerramentoTimers {
 	public NotificadorEncerramentoTimers(Jogador jogador, Mapa mapa) {
 		this.interrompedores = new ArrayList<>();
 		this.interrompedores.add(jogador.getRecursos());
+		mapa.getReinos().forEach((chave, reino) -> {
+			this.interrompedores.add(reino.getRecursos());
+		});
 	}
 
 	public void encerrarTimers() {
