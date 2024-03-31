@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Jogador {
 	
-	private String nome;
+	private String nomeRei;
     private List<String> reinosConquistados;
     private Recursos recursos;
     private Exercito exercito;
@@ -18,7 +18,7 @@ public class Jogador {
     
     private Jogador() {
     	// TODO: Definir nome padrão para o Jogador ou deixar escolher
-    	this.nome = "";
+    	this.nomeRei = "";
     	this.reinosConquistados = new ArrayList<>();
     	this.recursos = new Recursos();
     	this.exercito = new Exercito(recursos); // TODO: Recursos não é dependência de exército
@@ -30,7 +30,7 @@ public class Jogador {
     }
 
     public String getNome() {
-        return nome;
+        return nomeRei;
     }
 
     public List<String> getReinosConquistados() {
@@ -48,4 +48,31 @@ public class Jogador {
     public void adicionarReinoConquistado(String nomeReino) {
         reinosConquistados.add(nomeReino);
     }
+    
+    @Override
+    public String toString() {
+    	return new StringBuilder()
+    			.append("Informações do Jogador:")
+    			.append("\nNome: ")
+    			.append(nomeRei)
+    			.append("\nReinos Conquistados:")
+    			.append(obterReinosConquistadosComoTexto())
+    			.append(recursos.toString())
+    			.append(exercito.toString())
+    			.append(edificacoes.toString())
+    			.toString();
+    }
+
+	private String obterReinosConquistadosComoTexto() {
+		if (reinosConquistados.isEmpty()) {
+    		return "\nO jogador não conquistou nenhum reino ainda.";
+    	} 
+		String reinosConquistadosFormatado = "";
+		for (String nomeReino : reinosConquistados) {
+            reinosConquistadosFormatado
+            		.concat("\nReino: ")
+            		.concat(nomeReino);
+        }
+		return reinosConquistadosFormatado;
+	}
 }

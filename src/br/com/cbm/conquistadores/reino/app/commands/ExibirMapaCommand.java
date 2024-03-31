@@ -20,7 +20,7 @@ public class ExibirMapaCommand implements AcaoCommand {
         Map<Integer, Reino> reinosNoMapa = mapa.getReinos();
         if (reinosNoMapa != null && !reinosNoMapa.isEmpty()) {
             for (Map.Entry<Integer, Reino> entry : reinosNoMapa.entrySet()) {
-                System.out.println("Chave: " + entry.getKey() + ", Reino: " + entry.getValue().getNome());
+                System.out.println("Chave: " + entry.getKey() + ", Reino: " + entry.getValue().getNomeReino());
             }
         } else {
             System.out.println("O mapa não possui nenhum reino.");

@@ -2,7 +2,6 @@ package br.com.cbm.conquistadores.reino.app;
 
 import br.com.cbm.conquistadores.reino.app.commands.AcaoCommand;
 import br.com.cbm.conquistadores.reino.app.commands.AcaoProcessor;
-import br.com.cbm.conquistadores.reino.app.commands.CommandFactory;
 import br.com.cbm.conquistadores.reino.app.commands.ConquistarReinoCommand;
 import br.com.cbm.conquistadores.reino.app.commands.ConstruirEdificacacoesCommand;
 import br.com.cbm.conquistadores.reino.app.commands.ExibirInformacoesJogadorCommand;
@@ -26,7 +25,7 @@ public class ConquistadoresReinoFacade {
 	public ConquistadoresReinoFacade() {
 		this.jogador = Jogador.getInstance();
 		this.mapa = Mapa.getInstance();
-		this.estadoDoJogo = ConquistadoresReinoState.getInstance();
+		this.estadoDoJogo = new ConquistadoresReinoState();
 		this.interfaceDeUsuario = new InterfaceDeUsuarioFacade();
 		this.acaoProcessor = new AcaoProcessor();
 		this.notificadorEncerramentoTimers = new NotificadorEncerramentoTimers(jogador, mapa);
@@ -37,11 +36,23 @@ public class ConquistadoresReinoFacade {
 		while (estadoDoJogo.estaEmAndamento()) {
 			interfaceDeUsuario.imprimirAcoes();
 			int acao = interfaceDeUsuario.lerAcao();
-			acaoProcessor.processa(CommandFactory.criaAcao(acao));
+			acaoProcessor.processa(defineAcao(acao));
 		}
 		this.encerrarJogo();
 	}
 
+	private AcaoCommand defineAcao(int acao) {
+		return switch(acao) {
+			case 1 -> new ExibirInformacoesJogadorCommand(jogador, interfaceDeUsuario);
+			case 2 -> new ExibirMapaCommand();
+			case 3 -> new TreinarExercitoCommand();
+			case 4 -> new ConstruirEdificacacoesCommand();
+			case 5 -> new ConquistarReinoCommand();
+			case 6 -> new SairCommand(estadoDoJogo);
+			default -> throw new IllegalArgumentException("Valor inesperado para acao (esperado de 1 a 5): " + acao);
+		};
+	}
+	
 	private void iniciarJogo() {
 		this.estadoDoJogo.inciar();
 		this.interfaceDeUsuario.imprimirTitulo();

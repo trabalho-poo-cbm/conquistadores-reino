@@ -4,19 +4,10 @@ package br.com.cbm.conquistadores.reino.app;
 public class ConquistadoresReinoState {
 
 	private State estado;
-	private static final ConquistadoresReinoState INSTANCE;
-	
-	static {
-		INSTANCE = new ConquistadoresReinoState();
-	}
 	
 	private enum State {
 		EM_ANDAMENTO,
 		ENCERRADO;
-	}
-
-	public static ConquistadoresReinoState getInstance() {
-		return INSTANCE;
 	}
 	
 	public void inciar() {

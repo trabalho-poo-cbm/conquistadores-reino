@@ -2,12 +2,18 @@ package br.com.cbm.conquistadores.reino.app.ui;
 
 import java.util.Scanner;
 
+import br.com.cbm.conquistadores.reino.domain.entities.Jogador;
+
 // TODO: Separar responsabilidades em mais objetos
 public class InterfaceDeUsuarioFacade {
 
+	private final ImpressorDados impressor;
+	
+	// TODO: Remover scanner daqui
 	private final Scanner scanner;
 
 	public InterfaceDeUsuarioFacade(){
+		this.impressor = new ImpressorDados();
 		this.scanner = new Scanner(System.in);
 	}
 
@@ -26,9 +32,8 @@ public class InterfaceDeUsuarioFacade {
 				                        | | \\ \\  __/ | | | | (_) |                      
 				                        |_|  \\_\\___|_|_| |_|\\___/                       
                                                                         
-                                                         
 				""";
-		System.out.println(titulo);
+		this.impressor.imprimeTexto(titulo);
 	}
 	
 	public void imprimirAcoes() {
@@ -40,7 +45,8 @@ public class InterfaceDeUsuarioFacade {
 				5 - Conquistar Reino
 				6 - Sair
 				""";
-		System.out.println(acoes);
+		this.impressor.pulaLinha();
+		this.impressor.imprimeTexto(acoes);
 	}
 
 	public int lerAcao(){
@@ -80,5 +86,10 @@ public class InterfaceDeUsuarioFacade {
 		} while (numero < 0);
 
 		return numero;
+	}
+
+	public void imprimeInformacaoJogador(Jogador jogador) {
+		this.impressor.pulaLinha();
+		this.impressor.imprimeObjeto(jogador);
 	}
 }
