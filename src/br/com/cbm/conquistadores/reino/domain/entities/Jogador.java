@@ -6,12 +6,12 @@ import java.util.Random;
 
 public class Jogador {
 	
+	private final static Jogador INSTANCE;
 	private String nomeRei;
     private List<String> reinosConquistados;
     private Recursos recursos;
     private Exercito exercito;
     private Edificacoes edificacoes;
-    private final static Jogador INSTANCE;
 
     static {
     	INSTANCE = new Jogador();

@@ -7,7 +7,6 @@ public class Edificacoes {
 
 	private final Map<Edificacao, Integer> edificacoes;
 	
-	// TODO: Receber quantidade inicial do construtor
 	public Edificacoes(int casa, int muralha, int torre) {
 		this.edificacoes = new ConcurrentHashMap<>();
 		edificacoes.put(Edificacao.CASA, casa);
@@ -21,9 +20,16 @@ public class Edificacoes {
 		TORRE
 	}
 	
-	// TODO: Ajustar formatação texto
 	@Override
 	public String toString() {
-		return "\nEdificacoes";
+		return new StringBuilder()
+				.append("\nEdificacoes:")
+				.append("\n\tCasas: ")
+				.append(edificacoes.get(Edificacao.CASA))
+				.append(" | Muralhas: ")
+				.append(edificacoes.get(Edificacao.MURALHA))
+				.append(" | Torres: ")
+				.append(edificacoes.get(Edificacao.TORRE))
+				.toString();
 	}
 }

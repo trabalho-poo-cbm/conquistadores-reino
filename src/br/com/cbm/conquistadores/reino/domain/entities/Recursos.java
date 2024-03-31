@@ -64,9 +64,9 @@ public class Recursos extends TimerTask implements InterrompedorTimerObserver {
 			.append("\n\tFerro: ")
 			.append(recursos.get(Recurso.FERRO))
 			.append(" | Madeira: ")
-			.append(recursos.get(Recurso.FERRO))
+			.append(recursos.get(Recurso.MADEIRA))
 			.append(" | Ouro: ")
-			.append(recursos.get(Recurso.FERRO))
+			.append(recursos.get(Recurso.OURO))
 			.toString();
 	}
 }

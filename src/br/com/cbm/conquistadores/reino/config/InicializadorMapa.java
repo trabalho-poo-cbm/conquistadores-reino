@@ -18,7 +18,7 @@ public class InicializadorMapa {
     );
 
     private static final List<String> nomesReis = Arrays.asList(
-            "Avelino", "Uther", "Merlin", "Guinevere", "Lancelot", "Morgana", "Galahad"
+            "Avelinno", "Uther", "Merlin", "Guinevere", "Lancelot", "Morgana", "Galahad"
     );
 
     public static Map<Integer, Reino> inicializar() {

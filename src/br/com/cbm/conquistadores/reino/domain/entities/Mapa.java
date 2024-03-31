@@ -6,9 +6,13 @@ import br.com.cbm.conquistadores.reino.config.InicializadorMapa;
 
 public class Mapa {
 	
-	private static final Mapa INSTANCE = new Mapa();
+	private static final Mapa INSTANCE;
 	private final String name;
 	private final Map<Integer, Reino> reinos;
+	
+	static {
+		INSTANCE = new Mapa();
+	}
 	
 	private Mapa() {
 		// TODO: Definir nome do mapa no construtor
