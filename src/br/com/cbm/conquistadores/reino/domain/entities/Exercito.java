@@ -4,7 +4,6 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-import br.com.cbm.conquistadores.reino.domain.entities.Recursos;
 
 public class Exercito {
 
