@@ -18,8 +18,13 @@ public class Recursos extends TimerTask implements InterrompedorTimerObserver {
         this.recursos.put(Recurso.MADEIRA, madeira);
         this.recursos.put(Recurso.OURO, ouro);
         timer = new Timer();
-        // TODO: Recurso não herda de timer task, usar classe anônima aqui
-        timer.scheduleAtFixedRate(this, 0, 45 * 1000); // A cada 45 segundos
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                recursos.put(Recurso.MADEIRA, recursos.getOrDefault(Recurso.MADEIRA, 0) + 10);
+                recursos.put(Recurso.FERRO, recursos.getOrDefault(Recurso.FERRO, 0) + 10);
+            }
+        }, 0, 45 * 1000);
     }
 
     public enum Recurso {

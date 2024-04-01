@@ -2,6 +2,7 @@ package br.com.cbm.conquistadores.reino.app.commands;
 
 import br.com.cbm.conquistadores.reino.domain.entities.Exercito;
 import br.com.cbm.conquistadores.reino.domain.entities.Jogador;
+import br.com.cbm.conquistadores.reino.domain.entities.Recursos;
 import br.com.cbm.conquistadores.reino.domain.usecases.TreinarExercitoUseCase;
 
 public class TreinarExercitoCommand implements AcaoCommand {
@@ -15,7 +16,8 @@ public class TreinarExercitoCommand implements AcaoCommand {
     @Override
 	public void execute() {
         Exercito exercito = jogador.getExercito();
-		TreinarExercitoUseCase useCase = new TreinarExercitoUseCase(exercito);
-        useCase.treinarExercito();
+        Recursos recursos = jogador.getRecursos();
+		TreinarExercitoUseCase useCase = new TreinarExercitoUseCase(exercito, recursos);
+        useCase.treinarExercito(10, 10);
     }
 }

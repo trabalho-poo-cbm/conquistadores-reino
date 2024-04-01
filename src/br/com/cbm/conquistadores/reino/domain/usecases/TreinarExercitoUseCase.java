@@ -1,32 +1,24 @@
 package br.com.cbm.conquistadores.reino.domain.usecases;
 
 import br.com.cbm.conquistadores.reino.domain.entities.Exercito;
-import java.util.Timer;
-import java.util.TimerTask;
+import br.com.cbm.conquistadores.reino.domain.entities.Recursos;
 
 public class TreinarExercitoUseCase {
     
-        private Exercito exercito;
-//        private Timer timer;
-    
-        public TreinarExercitoUseCase(Exercito exercito) {
-            this.exercito = exercito;
-    
-//            timer = new Timer();
-//            timer.scheduleAtFixedRate(new TimerTask() {
-//                @Override
-//                public void run() {
-//                    execute();
-//                }
-//            }, 0, 20 * 1000); // A cada 20 segundos
-        }
+    private Exercito exercito;
+    private Recursos recursos;
+            
+    public TreinarExercitoUseCase(Exercito exercito, Recursos recursos) {
+        this.exercito = exercito;
+        this.recursos = recursos;
+    }
 
-        public void treinarExercito() {
-            exercito.treinarTropas(10, 10);
+    public void treinarExercito(int madeiraNecessaria, int ferroNecessario) {
+        if (recursos.consumirRecursos(madeiraNecessaria, ferroNecessario)) {
+            exercito.treinarTropas();
+            System.out.println("Tropas treinadas com sucesso!");
+        } else {
+            System.out.println("Recursos insuficientes para treinar tropas!");
         }
-        
-        @Override
-        protected void finalize() throws Throwable {
-//        	timer.cancel();
-        }
+    }
 }
