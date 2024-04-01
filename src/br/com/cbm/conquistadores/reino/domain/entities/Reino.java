@@ -26,6 +26,10 @@ public class Reino {
 		return recursos;
 	}
 	
+	public Exercito getExercito() {
+		return exercito;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder()

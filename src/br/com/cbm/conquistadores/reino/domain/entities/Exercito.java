@@ -5,7 +5,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class Exercito {
+import br.com.cbm.conquistadores.reino.app.observer.InterrompedorTimerObserver;
+
+public class Exercito implements InterrompedorTimerObserver {
 
     private Map<Soldado, Integer> tropasTreinadas;
     private Timer timer;
@@ -60,4 +62,9 @@ public class Exercito {
                 .append(tropasTreinadas.get(Soldado.TANQUE))
                 .toString();
     }
+
+	@Override
+	public void interromperTimer() {
+		this.timer.cancel();
+	}
 }

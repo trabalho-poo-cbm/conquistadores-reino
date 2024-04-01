@@ -45,7 +45,7 @@ public class ConquistadoresReinoFacade {
 		return switch(acao) {
 			case 1 -> new ExibirInformacoesJogadorCommand(jogador, interfaceDeUsuario);
 			case 2 -> new ExibirMapaCommand(mapa, interfaceDeUsuario);
-			case 3 -> new TreinarExercitoCommand(jogador);
+			case 3 -> new TreinarExercitoCommand(jogador, interfaceDeUsuario);
 			case 4 -> new ConstruirEdificacacoesCommand(jogador, interfaceDeUsuario);
 			case 5 -> new ConquistarReinoCommand();
 			case 6 -> new SairCommand(estadoDoJogo);
