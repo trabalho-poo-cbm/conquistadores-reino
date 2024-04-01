@@ -37,18 +37,10 @@ public class Recursos extends TimerTask implements InterrompedorTimerObserver {
 		return recursos;
 	}
 
-    public boolean consumirRecursos(int madeiraNecessaria, int ferroNecessario) {
-        int madeira = recursos.getOrDefault(Recurso.MADEIRA, 0);
-        int ferro = recursos.getOrDefault(Recurso.FERRO, 0);
-    	
-    	if (madeira >= madeiraNecessaria && ferro >= ferroNecessario) {
-            
-            recursos.put(Recurso.MADEIRA, recursos.get(Recurso.MADEIRA) - madeiraNecessaria);
-            recursos.put(Recurso.FERRO, recursos.get(Recurso.FERRO) - ferroNecessario);
-            
-            return true;
-        }
-        return false;
+    public void consumirRecursos(Map<Recurso, Integer> orcamento) {
+    	recursos.put(Recurso.FERRO, recursos.get(Recurso.FERRO) - orcamento.getOrDefault(Recurso.FERRO, 0));
+        recursos.put(Recurso.MADEIRA, recursos.get(Recurso.MADEIRA) - orcamento.getOrDefault(Recurso.MADEIRA, 0));
+        recursos.put(Recurso.OURO, recursos.get(Recurso.OURO) - orcamento.getOrDefault(Recurso.OURO, 0));
     }
     
     @Override
@@ -73,5 +65,10 @@ public class Recursos extends TimerTask implements InterrompedorTimerObserver {
 			.append(" | Ouro: ")
 			.append(recursos.get(Recurso.OURO))
 			.toString();
+	}
+
+	public boolean consumirRecursos(int madeiraNecessaria, int ferroNecessario) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

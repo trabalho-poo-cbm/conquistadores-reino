@@ -1,7 +1,12 @@
 package br.com.cbm.conquistadores.reino.app.ui;
 
+import java.util.Map;
+
+import br.com.cbm.conquistadores.reino.domain.entities.Edificacoes;
 import br.com.cbm.conquistadores.reino.domain.entities.Jogador;
 import br.com.cbm.conquistadores.reino.domain.entities.Mapa;
+import br.com.cbm.conquistadores.reino.domain.entities.Recursos;
+import br.com.cbm.conquistadores.reino.domain.entities.Recursos.Recurso;
 
 public class InterfaceDeUsuarioFacade {
 
@@ -68,5 +73,35 @@ public class InterfaceDeUsuarioFacade {
 	public void exibirInformacaoMapa(Mapa mapa) {
 		this.impressor.pulaLinha();
 		this.impressor.imprimeObjeto(mapa);
+	}
+
+	public void exibirCustoConstrucaoEdificacoes(Edificacoes edificacoes, Recursos recursos,
+			Map<Recurso, Integer> orcamento) {
+		this.impressor.imprimeObjeto(edificacoes);
+		this.impressor.imprimeObjeto(recursos);
+		this.impressor.imprimeTexto(formatarOrcamento(orcamento));
+	}
+
+	private String formatarOrcamento(Map<Recurso, Integer> orcamento) {
+		return new StringBuilder()
+				.append("\nCusto da construcao: ")
+				.append("\n\tFerro: ")
+				.append(orcamento.getOrDefault(Recursos.Recurso.FERRO, 0))
+				.append(" | Madeira: ")
+				.append(orcamento.getOrDefault(Recursos.Recurso.MADEIRA, 0))
+				.append(" | Ouro: ")
+				.append(orcamento.getOrDefault(Recursos.Recurso.OURO, 0))
+				.toString();
+	}
+
+	public boolean confirmaAcao() {
+		final String mensagem = "Deseja prosseguir com a ação? [S/n] ";
+		final String mensagemErro = "Entrada invalida. Espera-se 'S' ou 'n'.";
+		this.impressor.pulaLinha();
+		return this.leitor.leSimOuNao(mensagem, mensagemErro).equalsIgnoreCase("S");
+	}
+
+	public void imprimeTexto(String texto) {
+		this.impressor.imprimeTexto(texto);
 	}
 }

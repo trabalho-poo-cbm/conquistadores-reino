@@ -12,7 +12,7 @@ public class LeitorDados {
 	
 	public int lerNatural(String mensagem, String mensagemErro){
 
-		String entrada;
+		String entrada = "";
 		int numero = -1;
 
 		do {
@@ -27,7 +27,7 @@ public class LeitorDados {
 				}
 			}
 
-			if (!isNumber) {
+			if (!isNumber || entrada.isBlank()) {
 				System.out.println(mensagemErro);
 				continue;
 			}
@@ -37,5 +37,19 @@ public class LeitorDados {
 		} while (numero < 0);
 
 		return numero;
+	}
+
+	public String leSimOuNao(String mensagem, String mensagemErro) {
+		String resposta = "";
+		boolean respostaValida = false;
+		while (!respostaValida) {
+			System.out.print(mensagem);
+			resposta = scanner.nextLine().toUpperCase();
+			if (resposta.equals("S") || resposta.equals("N")) {
+				break;
+			}
+			System.out.println(mensagemErro);
+		}
+        return resposta;
 	}
 }

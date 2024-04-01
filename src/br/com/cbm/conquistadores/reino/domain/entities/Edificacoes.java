@@ -21,8 +21,8 @@ public class Edificacoes {
 	}
 	
 	public void construir() {
-        edificacoes.put(Edificacao.CASA, edificacoes.get(Edificacao.CASA) + 1);
-        edificacoes.put(Edificacao.MURALHA, edificacoes.get(Edificacao.MURALHA) + 1);
+        edificacoes.put(Edificacao.CASA, edificacoes.get(Edificacao.CASA) + 5);
+        edificacoes.put(Edificacao.MURALHA, edificacoes.get(Edificacao.MURALHA) + 2);
         edificacoes.put(Edificacao.TORRE, edificacoes.get(Edificacao.TORRE) + 1);
     }
 

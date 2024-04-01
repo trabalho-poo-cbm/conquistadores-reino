@@ -1,24 +1,42 @@
 package br.com.cbm.conquistadores.reino.domain.usecases;
 
+import java.util.Map;
+
+import br.com.cbm.conquistadores.reino.app.ui.InterfaceDeUsuarioFacade;
 import br.com.cbm.conquistadores.reino.domain.entities.Edificacoes;
 import br.com.cbm.conquistadores.reino.domain.entities.Recursos;
+import br.com.cbm.conquistadores.reino.domain.entities.Recursos.Recurso;
 
 public class ConstruirEdificacoesUseCase {
 
-    private Edificacoes edificacoes;
-    private Recursos recursos;
+    private final Edificacoes edificacoes;
+    private final Recursos recursos;
+	private final InterfaceDeUsuarioFacade interfaceDeUsuario;
 
-    public ConstruirEdificacoesUseCase(Edificacoes edificacoes, Recursos recursos) {
+    public ConstruirEdificacoesUseCase(Edificacoes edificacoes, Recursos recursos,
+    		InterfaceDeUsuarioFacade interfaceDeUsuario) {
         this.edificacoes = edificacoes;
         this.recursos = recursos;
+		this.interfaceDeUsuario = interfaceDeUsuario;
     }
 
-    public void construirEdificacao(int madeiraNecessaria, int pedraNecessaria) {
-        if (recursos.consumirRecursos(madeiraNecessaria, pedraNecessaria)) {
-            edificacoes.construir();
-            System.out.println("Edificação construída com sucesso!");
-        } else {
-            System.out.println("Recursos insuficientes para construir edificação!");
-        }
+    public void construirEdificacao() {
+    	Map<Recursos.Recurso, Integer> orcamento = Map.of(Recursos.Recurso.FERRO, 10, Recursos.Recurso.OURO, 10);
+    	interfaceDeUsuario.exibirCustoConstrucaoEdificacoes(edificacoes, recursos, orcamento);
+    	if (interfaceDeUsuario.confirmaAcao() && isRecursosSuficientes(recursos, orcamento)) {
+    		recursos.consumirRecursos(orcamento);
+    		edificacoes.construir();
+    		interfaceDeUsuario.imprimeTexto("Edificacoes construidas com sucesso!");
+    	} else {
+    		interfaceDeUsuario.imprimeTexto("Recursos insuficientes para construir edificacoes!");
+    	}
     }
+
+	private boolean isRecursosSuficientes(Recursos recursos, Map<Recurso, Integer> orcamento) {
+		int ferro = recursos.getRecursos().getOrDefault(Recurso.FERRO, 0);
+		int ouro = recursos.getRecursos().getOrDefault(Recurso.OURO, 0);
+		int ferroNecessario = orcamento.get(Recursos.Recurso.FERRO);
+		int ouroNecessario = orcamento.get(Recursos.Recurso.OURO);
+		return ferro >= ferroNecessario && ouro >= ouroNecessario;
+	}
 }
