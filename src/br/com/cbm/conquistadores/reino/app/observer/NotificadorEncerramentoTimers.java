@@ -10,7 +10,6 @@ public class NotificadorEncerramentoTimers {
 
 	private final List<InterrompedorTimerObserver> interrompedores;
 	
-	// TODO: Garantir que todos os objetos que usarem timers estarão aqui
 	public NotificadorEncerramentoTimers(Jogador jogador, Mapa mapa) {
 		this.interrompedores = new ArrayList<>();
 		this.interrompedores.add(jogador.getRecursos());
