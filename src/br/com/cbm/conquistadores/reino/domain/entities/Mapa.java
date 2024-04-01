@@ -62,4 +62,8 @@ public class Mapa {
         		.append("\nCONQUISTADO");
         return reinosBuilder.toString();
 	}
+
+	public boolean isConquistado() {
+		return reinos.values().stream().allMatch(Reino::isConquistado);
+	}
 }

@@ -7,7 +7,8 @@ public class ConquistadoresReinoState {
 	
 	private enum State {
 		EM_ANDAMENTO,
-		ENCERRADO;
+		ENCERRADO,
+		GANHO;
 	}
 	
 	public void inciar() {
@@ -20,5 +21,9 @@ public class ConquistadoresReinoState {
 	
 	public void encerrar() {
 		this.estado = State.ENCERRADO;
+	}
+
+	public void vencer() {
+		this.estado = State.GANHO;
 	}
 }

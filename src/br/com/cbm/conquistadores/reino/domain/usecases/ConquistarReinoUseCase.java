@@ -1,6 +1,5 @@
 package br.com.cbm.conquistadores.reino.domain.usecases;
 
-import java.util.Map;
 import java.util.Scanner;
 
 import br.com.cbm.conquistadores.reino.app.ui.ImpressorDados;
@@ -61,7 +60,7 @@ public class ConquistarReinoUseCase {
 			return;
 		}
 		
-		if (jogador.getExercito().getTotalTropasTreinadas() < .getDefesa()) {
+		if (jogador.getExercito().getTotalTropasTreinadas() < alvo.getDefesa()) {
 			throw new RuntimeException();
 		}
 		

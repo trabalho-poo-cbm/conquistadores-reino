@@ -47,7 +47,7 @@ public class ConquistadoresReinoFacade {
 			case 2 -> new ExibirMapaCommand(mapa, interfaceDeUsuario);
 			case 3 -> new TreinarExercitoCommand(jogador, interfaceDeUsuario);
 			case 4 -> new ConstruirEdificacacoesCommand(jogador, interfaceDeUsuario);
-			case 5 -> new ConquistarReinoCommand();
+			case 5 -> new ConquistarReinoCommand(jogador, mapa, interfaceDeUsuario, estadoDoJogo);
 			case 6 -> new SairCommand(estadoDoJogo);
 			default -> throw new IllegalArgumentException("Valor inesperado para acao (esperado de 1 a 5): " + acao);
 		};

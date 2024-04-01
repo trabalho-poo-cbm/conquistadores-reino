@@ -62,13 +62,11 @@ public class Exercito implements InterrompedorTimerObserver {
                 .append(tropasTreinadas.get(Soldado.TANQUE))
                 .toString();
     }
-<<<<<<< Updated upstream
 
 	@Override
 	public void interromperTimer() {
 		this.timer.cancel();
 	}
-=======
     
     public int getTotalTropasTreinadas() {
         int totalTropas = 0;
@@ -77,5 +75,4 @@ public class Exercito implements InterrompedorTimerObserver {
         }
         return totalTropas;
     }
->>>>>>> Stashed changes
 }

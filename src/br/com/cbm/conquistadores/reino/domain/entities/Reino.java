@@ -30,6 +30,10 @@ public class Reino {
 		return exercito;
 	}
 	
+	public boolean isConquistado() {
+		return conquistado;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder()
