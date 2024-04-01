@@ -32,7 +32,7 @@ public class Exercito {
             public void run() {
                 treinarTropas();
             }
-        }, 0, 20 * 1000); 
+        }, 0, 40 * 1000); 
     }
 
     public void treinarTropas() {

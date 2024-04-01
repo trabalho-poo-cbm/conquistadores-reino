@@ -20,6 +20,12 @@ public class Edificacoes {
 		TORRE
 	}
 	
+	public void construir() {
+        edificacoes.put(Edificacao.CASA, edificacoes.get(Edificacao.CASA) + 1);
+        edificacoes.put(Edificacao.MURALHA, edificacoes.get(Edificacao.MURALHA) + 1);
+        edificacoes.put(Edificacao.TORRE, edificacoes.get(Edificacao.TORRE) + 1);
+    }
+
 	@Override
 	public String toString() {
 		return new StringBuilder()

@@ -46,6 +46,10 @@ public class Jogador {
     public Recursos getRecursos() {
     	return recursos;
     }
+
+    public Edificacoes getEdificacoes(){
+        return edificacoes;
+    }
     
     public void adicionarReinoConquistado(String nomeReino) {
         reinosConquistados.add(nomeReino);
