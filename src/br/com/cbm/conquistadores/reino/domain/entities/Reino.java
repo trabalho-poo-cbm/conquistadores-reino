@@ -54,4 +54,15 @@ public class Reino {
 		int defesa = (int) ((0.5*exercito.getTotalTropasTreinadas()) + (0.5*edificacoes.getTotalEdificacoesConstruidas()));
 		return defesa;
 	}
+	
+	public void setNomeRei(String nomeRei) {
+		this.nomeRei = nomeRei;
+	}
+	
+	public void setConquistado() {
+		if (conquistado) {
+			return;
+		}
+		conquistado = true;
+	}
 }

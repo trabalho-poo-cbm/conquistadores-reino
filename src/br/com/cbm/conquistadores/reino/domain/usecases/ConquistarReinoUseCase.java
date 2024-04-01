@@ -65,6 +65,9 @@ public class ConquistarReinoUseCase {
 		}
 		
 		jogador.adicionarReinoConquistado(alvo.getNomeReino());
+		alvo.setNomeRei(jogador.getNome());
+		alvo.setConquistado();
+		
 		
 		//exibe o resultado
 	}
