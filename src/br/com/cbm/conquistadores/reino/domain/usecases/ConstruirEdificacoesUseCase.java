@@ -26,9 +26,9 @@ public class ConstruirEdificacoesUseCase {
     	if (interfaceDeUsuario.confirmaAcao() && isRecursosSuficientes(recursos, orcamento)) {
     		recursos.consumirRecursos(orcamento);
     		edificacoes.construir();
-    		interfaceDeUsuario.imprimeTexto("Edificacoes construidas com sucesso!");
+    		interfaceDeUsuario.exibirTexto("Edificacoes construidas com sucesso!");
     	} else {
-    		interfaceDeUsuario.imprimeTexto("Recursos insuficientes para construir edificacoes!");
+    		interfaceDeUsuario.exibirTexto("Recursos insuficientes para construir edificacoes!");
     	}
     }
 
