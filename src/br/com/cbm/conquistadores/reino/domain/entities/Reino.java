@@ -45,4 +45,9 @@ public class Reino {
 		}
 		return builder.toString();
 	}
+	
+	public int getDefesa() {
+		int defesa = (int) ((0.5*exercito.getTotalTropasTreinadas()) + (0.5*edificacoes.getTotalEdificacoesConstruidas()));
+		return defesa;
+	}
 }

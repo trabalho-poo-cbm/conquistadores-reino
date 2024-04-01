@@ -38,4 +38,12 @@ public class Edificacoes {
 				.append(edificacoes.get(Edificacao.TORRE))
 				.toString();
 	}
+	
+	public int getTotalEdificacoesConstruidas() {
+        int totalEdificacoes = 0;
+        for (int quantidade : edificacoes.values()) {
+            totalEdificacoes += quantidade;
+        }
+        return totalEdificacoes;
+    }
 }
