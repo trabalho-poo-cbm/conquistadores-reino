@@ -72,8 +72,7 @@ public class ConquistarReinoUseCase {
 		alvo.setNomeRei(jogador.getNome());
 		alvo.setConquistado();
 		
-		
-		//exibe o resultado
+		impressor.imprimeTexto("Reino conquistado!");
 	}
 	
 	private boolean reinoConquistado(Reino alvo) {
