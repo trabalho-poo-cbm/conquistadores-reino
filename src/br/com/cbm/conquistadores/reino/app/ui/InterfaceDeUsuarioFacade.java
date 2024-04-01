@@ -1,21 +1,16 @@
 package br.com.cbm.conquistadores.reino.app.ui;
 
-import java.util.Scanner;
-
 import br.com.cbm.conquistadores.reino.domain.entities.Jogador;
 import br.com.cbm.conquistadores.reino.domain.entities.Mapa;
 
-// TODO: Separar responsabilidades em mais objetos
 public class InterfaceDeUsuarioFacade {
 
 	private final ImpressorDados impressor;
-	
-	// TODO: Remover scanner daqui
-	private final Scanner scanner;
+	private final LeitorDados leitor;
 
 	public InterfaceDeUsuarioFacade(){
 		this.impressor = new ImpressorDados();
-		this.scanner = new Scanner(System.in);
+		this.leitor = new LeitorDados();
 	}
 
 	public void exibirTitulo() {
@@ -51,41 +46,17 @@ public class InterfaceDeUsuarioFacade {
 	}
 
 	public int lerAcao(){
-
-		int numero = 0;
-
-		do{
-			numero = lerNatural("Digite um número inteiro entre 1 e 6: ");
-		} while(numero < 1 || numero > 6);
-		return numero;
-	}
-
-	private int lerNatural(String mensagem){
-
-		String entrada;
-		int numero = 0;
-
+		final String mensagemExibicao = "Qual acao deseja realizar: ";
+		final String mensagemErro = "Entrada invalida. Espera-se um numero inteiro entre 1 e 6. ";
+		boolean acaoValida = false;
+		int numero = -1;
 		do {
-			System.out.println(mensagem);
-			entrada = scanner.nextLine();
-
-			boolean isNumber = true;
-			for (char c : entrada.toCharArray()) {
-				if (!Character.isDigit(c)) {
-					isNumber = false;
-					break;
-				}
+			numero = leitor.lerNatural(mensagemExibicao, mensagemErro);
+			if (numero >= 1 && numero <= 6) {
+				break;
 			}
-
-			if (!isNumber) {
-				System.out.println("Entrada inválida. ".concat(mensagem));
-				continue;
-			}
-
-			numero = Integer.parseInt(entrada);
-
-		} while (numero < 0);
-
+			impressor.imprimeTexto(mensagemErro);
+		} while(!acaoValida);
 		return numero;
 	}
 
