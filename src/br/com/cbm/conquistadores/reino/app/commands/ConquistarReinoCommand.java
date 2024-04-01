@@ -23,7 +23,7 @@ public class ConquistarReinoCommand implements AcaoCommand {
 	
 	@Override
 	public void execute() {
-		ConquistarReinoUseCase useCase = new ConquistarReinoUseCase(jogador, mapa, interfaceDeUsuario);
+		ConquistarReinoUseCase useCase = new ConquistarReinoUseCase(jogador, mapa, interfaceDeUsuario, estadoDoJogo);
 		useCase.conquistarReino();
 		if (mapa.isConquistado()) {
 			estadoDoJogo.vencer();

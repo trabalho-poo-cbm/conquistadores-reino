@@ -2,6 +2,7 @@ package br.com.cbm.conquistadores.reino.domain.usecases;
 
 import java.util.Scanner;
 
+import br.com.cbm.conquistadores.reino.app.ConquistadoresReinoState;
 import br.com.cbm.conquistadores.reino.app.ui.ImpressorDados;
 import br.com.cbm.conquistadores.reino.app.ui.InterfaceDeUsuarioFacade;
 import br.com.cbm.conquistadores.reino.domain.entities.Jogador;
@@ -14,11 +15,13 @@ public class ConquistarReinoUseCase {
 	private final InterfaceDeUsuarioFacade interfaceDeUsuario;
 	private final ImpressorDados impressor;
 	private final Scanner scanner;
+	private ConquistadoresReinoState estadoDoJogo;
 	
-	public ConquistarReinoUseCase(Jogador jogador, Mapa mapa, InterfaceDeUsuarioFacade interfaceDeUsuario) {
+	public ConquistarReinoUseCase(Jogador jogador, Mapa mapa, InterfaceDeUsuarioFacade interfaceDeUsuario, ConquistadoresReinoState estadoDoJogo) {
 		this.jogador = jogador;
 		this.mapa = mapa;
 		this.interfaceDeUsuario = interfaceDeUsuario;
+		this.estadoDoJogo = estadoDoJogo;
 		this.impressor = new ImpressorDados();
 		this.scanner = new Scanner(System.in);
 	}
@@ -61,7 +64,8 @@ public class ConquistarReinoUseCase {
 		}
 		
 		if (jogador.getExercito().getTotalTropasTreinadas() < alvo.getDefesa()) {
-			throw new RuntimeException();
+			estadoDoJogo.perder();
+			return;
 		}
 		
 		jogador.adicionarReinoConquistado(alvo.getNomeReino());

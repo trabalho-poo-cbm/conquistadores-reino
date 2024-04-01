@@ -1,6 +1,5 @@
 package br.com.cbm.conquistadores.reino.app;
 
-// TODO: Criar estados de vitoria e derrota
 public class ConquistadoresReinoState {
 
 	private State estado;
@@ -8,7 +7,7 @@ public class ConquistadoresReinoState {
 	private enum State {
 		EM_ANDAMENTO,
 		ENCERRADO,
-		GANHO;
+		GANHO, PERDIDO;
 	}
 	
 	public void inciar() {
@@ -25,5 +24,9 @@ public class ConquistadoresReinoState {
 
 	public void vencer() {
 		this.estado = State.GANHO;
+	}
+
+	public void perder() {
+		this.estado = State.PERDIDO;
 	}
 }
