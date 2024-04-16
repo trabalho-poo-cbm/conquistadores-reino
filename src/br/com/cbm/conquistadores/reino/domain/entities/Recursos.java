@@ -66,9 +66,4 @@ public class Recursos extends TimerTask implements InterrompedorTimerObserver {
 			.append(recursos.get(Recurso.OURO))
 			.toString();
 	}
-
-	public boolean consumirRecursos(int madeiraNecessaria, int ferroNecessario) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }

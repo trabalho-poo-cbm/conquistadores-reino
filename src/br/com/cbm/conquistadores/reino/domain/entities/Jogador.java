@@ -23,7 +23,7 @@ public class Jogador {
     	this.reinosConquistados = new ArrayList<>();
     	this.reinosConquistados.add("Arkanor");
     	this.recursos = new Recursos(random.nextInt(16) + 10, random.nextInt(16) + 10, random.nextInt(16) + 10);
-    	this.exercito = new Exercito(random.nextInt(16) + 10, random.nextInt(16) + 10, random.nextInt(16) + 10); // TODO: Recursos não é dependência de exército
+    	this.exercito = new Exercito(random.nextInt(16) + 10, random.nextInt(16) + 10, random.nextInt(16) + 10);
     	this.edificacoes = new Edificacoes(random.nextInt(16) + 10, random.nextInt(16) + 10, random.nextInt(16) + 10);
     }
 
