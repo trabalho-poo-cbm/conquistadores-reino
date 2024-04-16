@@ -58,11 +58,9 @@ public class Reino {
 	public void setNomeRei(String nomeRei) {
 		this.nomeRei = nomeRei;
 	}
-	
-	public void setConquistado() {
-		if (conquistado) {
-			return;
-		}
-		conquistado = true;
+
+	public void serConquistado(String nome) {
+		this.nomeRei = nome;
+		this.conquistado = true;
 	}
 }

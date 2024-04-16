@@ -1,6 +1,6 @@
 package br.com.cbm.conquistadores.reino.domain.entities;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -19,9 +19,9 @@ public class Jogador {
     
     private Jogador() {
     	Random random = new Random();
-    	// TODO: Definir nome padrão para o Jogador ou deixar escolher
-    	this.nomeRei = "Placeholder";
-    	this.reinosConquistados = Arrays.asList("Arkanor");
+    	this.nomeRei = "Bjorn";
+    	this.reinosConquistados = new ArrayList<>();
+    	this.reinosConquistados.add("Arkanor");
     	this.recursos = new Recursos(random.nextInt(16) + 10, random.nextInt(16) + 10, random.nextInt(16) + 10);
     	this.exercito = new Exercito(random.nextInt(16) + 10, random.nextInt(16) + 10, random.nextInt(16) + 10); // TODO: Recursos não é dependência de exército
     	this.edificacoes = new Edificacoes(random.nextInt(16) + 10, random.nextInt(16) + 10, random.nextInt(16) + 10);

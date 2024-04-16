@@ -60,6 +60,6 @@ public class ConquistadoresReinoFacade {
 	
 	private void encerrarJogo() {
 		notificadorEncerramentoTimers.encerrarTimers();
-		// TODO Imprimir mensagem de vitória, derrota ou desistência
+		interfaceDeUsuario.exibirEncerramento(estadoDoJogo);
 	}
 }

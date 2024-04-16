@@ -4,10 +4,11 @@ public class ConquistadoresReinoState {
 
 	private State estado;
 	
-	private enum State {
+	public enum State {
 		EM_ANDAMENTO,
 		ENCERRADO,
-		GANHO, PERDIDO;
+		GANHO,
+		PERDIDO;
 	}
 	
 	public void inciar() {
@@ -28,5 +29,9 @@ public class ConquistadoresReinoState {
 
 	public void perder() {
 		this.estado = State.PERDIDO;
+	}
+	
+	public State getEstado() {
+		return estado;
 	}
 }

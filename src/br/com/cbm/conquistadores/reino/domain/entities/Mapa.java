@@ -17,8 +17,7 @@ public class Mapa {
 	}
 	
 	private Mapa() {
-		// TODO: Definir nome do mapa no construtor
-		this.nome = "Placeholder";
+		this.nome = "Niflheim";
 		this.reinos = InicializadorMapa.inicializar();
 	}
 	
@@ -35,6 +34,9 @@ public class Mapa {
         return reinos;
     }
     
+    public Reino obterReino(Integer alvo) {
+		return this.reinos.get(alvo);
+	}
     
     @Override
     public String toString() {
@@ -46,9 +48,7 @@ public class Mapa {
     			.append(obterReinosComoTexto())
     			.toString();
     }
-    
 
-    // TODO: MUDAR NOME REI
 	private String obterReinosComoTexto() {
 		StringBuilder reinosBuilder = new StringBuilder();
         Set<Entry<Integer, Reino>> reinosNoMapa = reinos.entrySet();

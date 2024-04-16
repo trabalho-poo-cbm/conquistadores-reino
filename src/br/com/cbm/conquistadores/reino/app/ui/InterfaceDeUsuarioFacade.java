@@ -2,6 +2,7 @@ package br.com.cbm.conquistadores.reino.app.ui;
 
 import java.util.Map;
 
+import br.com.cbm.conquistadores.reino.app.ConquistadoresReinoState;
 import br.com.cbm.conquistadores.reino.domain.entities.Edificacoes;
 import br.com.cbm.conquistadores.reino.domain.entities.Exercito;
 import br.com.cbm.conquistadores.reino.domain.entities.Jogador;
@@ -70,6 +71,21 @@ public class InterfaceDeUsuarioFacade {
 		return numero;
 	}
 
+	public int lerReinoAlvo() {
+		final String mensagemExibicao = "Qual reino deseja atacar? ";
+		final String mensagemErro = "Entrada invalida. Os reinos disponiveis sao de 1 a 7. ";
+		boolean reinoValido = false;
+		int reino = -1;
+		do {
+			reino= leitor.lerNatural(mensagemExibicao, mensagemErro);
+			if (reino >= 1 && reino <= 7) {
+				break;
+			}
+			impressor.imprimeTexto(mensagemErro);
+		} while(!reinoValido);
+		return reino;
+	}
+	
 	public boolean confirmaAcao() {
 		final String mensagem = "Deseja prosseguir com a ação? [S/n] ";
 		final String mensagemErro = "Entrada invalida. Espera-se 'S' ou 'n'.";
@@ -122,5 +138,19 @@ public class InterfaceDeUsuarioFacade {
 				.append(" | Ouro: ")
 				.append(orcamento.getOrDefault(Recursos.Recurso.OURO, 0))
 				.toString();
+	}
+
+	public void exibirEncerramento(ConquistadoresReinoState estadoDoJogo) {
+		this.impressor.imprimeTexto("\n");
+		this.impressor.imprimeTexto(defineTextoEncerramento(estadoDoJogo));
+	}
+
+	private String defineTextoEncerramento(ConquistadoresReinoState estadoDoJogo) {
+		return switch (estadoDoJogo.getEstado()) {
+			case ConquistadoresReinoState.State.ENCERRADO -> "Jogo encerrado! Seu reino será conquistado...";
+			case ConquistadoresReinoState.State.GANHO -> "Parabéns, você é o rei absoluto destas terras!";
+			case ConquistadoresReinoState.State.PERDIDO -> "Você foi conquistado! Seu reino foi anexado...";
+			default -> throw new IllegalArgumentException("Valor inesperado em estadoDoJogo.getEstado(): " + estadoDoJogo.getEstado());
+		};
 	}
 }
